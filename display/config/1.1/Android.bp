@@ -74,23 +74,13 @@ cc_library_shared {
         "liblog",
         "libutils",
         "libcutils",
-<<<<<<< HEAD
-        "android.hidl.base@1.0",
-        "vendor.display.config@1.0",
-=======
         "vendor.display.config@1.0_vendor",
->>>>>>> 49185ca... qcom/interfaces: Remove android.hidl.base from display 1.1 too
     ],
     export_shared_lib_headers: [
         "libhidlbase",
         "libhidltransport",
         "libhwbinder",
         "libutils",
-<<<<<<< HEAD
-        "android.hidl.base@1.0",
-        "vendor.display.config@1.0",
-=======
         "vendor.display.config@1.0_vendor",
->>>>>>> 49185ca... qcom/interfaces: Remove android.hidl.base from display 1.1 too
     ],
 }
