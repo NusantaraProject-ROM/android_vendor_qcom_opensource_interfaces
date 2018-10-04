@@ -1,4 +1,5 @@
-/* Copyright (c) 2017, The Linux Foundation. All rights reserved.
+
+/* Copyright (c) 2018, The Linux Foundation. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -27,44 +28,29 @@
 *
 */
 
-package vendor.qti.hardware.wifi.supplicant@1.0;
+package vendor.qti.hardware.wifi.hostapd@1.0;
 
-
-import android.hardware.wifi.supplicant@1.0::ISupplicantNetwork;
-import android.hardware.wifi.supplicant@1.0::ISupplicantStaNetworkCallback;
-import android.hardware.wifi.supplicant@1.0::ISupplicantStaNetwork;
-import android.hardware.wifi.supplicant@1.0::types;
-
+import android.hardware.wifi.hostapd@1.0::types;
 
 /**
- * Vendor StaNetwork Interface extend to wifi.Supplicant@1.0 ISupplicantStaNetwork
+ * Vendor Hostapd  Callback Interface
  */
-interface ISupplicantVendorStaNetwork extends ISupplicantStaNetwork {
-  /** Possble mask of values for VendorKeyMgmt param. */
-  enum VendorKeyMgmtMask : uint32_t {
-    FILS_SHA256 = 1 << 18,
-    FILS_SHA384 = 1 << 19,
-  };
+interface IHostapdVendorIfaceCallback {
 
-  /** Possble mask of values for VendorAuthAlg param. */
-  enum VendorAuthAlgMask : uint32_t {
-    FILS_SK = 1 << 5,
-  };
+  /** MAC Address type. 6 octets representing physical address of a device. */
+  typedef uint8_t[6] MacAddress;
 
   /**
-   * Enable EAP ERP for this network.
+   * Used to Notify Macaddres of connected stations to the AP
    *
-   * @param enable true to set, false otherwise.
-   * @return status Status of the operation.
-   *         Possible status codes:
-   *         |SupplicantStatusCode.SUCCESS|,
-   *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
-   *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
+   * @param new_sta is the MacAddress of New STA connected to this AP
    */
-  setEapErp(bool enable) generates (SupplicantStatus status);
+  oneway onStaConnected(MacAddress new_sta);
 
   /**
-   * Configure Sim number for eap-proxy
+   * Used to Notify Macaddress of disconnected stations to the AP
+   *
+   * @param del_sta is the MacAddress of STA disconnected to this AP
    */
-  setSimNumber(uint32_t sim_num) generates (SupplicantStatus status);
+  oneway onStaDisconnected(MacAddress del_sta);
 };
