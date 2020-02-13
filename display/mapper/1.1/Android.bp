@@ -3,6 +3,7 @@
 hidl_interface {
     name: "vendor.qti.hardware.display.mapper@1.1",
     root: "vendor.qti.hardware.display",
+    product_specific: true,
     srcs: [
         "IQtiMapper.hal",
     ],

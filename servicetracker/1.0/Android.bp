@@ -3,21 +3,13 @@
 hidl_interface {
     name: "vendor.qti.hardware.servicetracker@1.0",
     root: "vendor.qti.hardware.servicetracker",
+    product_specific: true,
     srcs: [
         "types.hal",
         "IServicetracker.hal",
     ],
     interfaces: [
         "android.hidl.base@1.0",
-    ],
-    types: [
-        "ClientConnection",
-        "ClientData",
-        "ClientRecord",
-        "ServiceConnection",
-        "ServiceData",
-        "ServiceRecord",
-        "Status",
     ],
     gen_java: true,
 }

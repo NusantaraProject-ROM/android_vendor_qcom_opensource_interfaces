@@ -3,6 +3,7 @@
 hidl_interface {
     name: "vendor.qti.hardware.wifi.supplicant@2.0",
     root: "vendor.qti.hardware.wifi",
+    product_specific: true,
     srcs: [
         "ISupplicantVendor.hal",
         "ISupplicantVendorIface.hal",

@@ -3,7 +3,9 @@
 hidl_interface {
     name: "vendor.display.config@1.10",
     root: "vendor.display",
+    product_specific: true,
     srcs: [
+        "IDisplayCWBCallback.hal",
         "IDisplayConfig.hal",
     ],
     interfaces: [

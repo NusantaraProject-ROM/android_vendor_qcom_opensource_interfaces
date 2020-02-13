@@ -3,6 +3,7 @@
 hidl_interface {
     name: "vendor.qti.hardware.display.allocator@1.0",
     root: "vendor.qti.hardware.display",
+    product_specific: true,
     srcs: [
         "IQtiAllocator.hal",
     ],
